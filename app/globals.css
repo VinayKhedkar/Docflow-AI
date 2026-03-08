@@ -386,16 +386,16 @@ html, body {
 .landing-nav-links a:hover {
   color: var(--text-primary);
 }
-.landing-nav-cta {
-  display: flex !important;
+.landing-nav-links a.landing-nav-cta {
+  display: flex;
   align-items: center;
   gap: 6px;
   padding: 7px 16px;
   border-radius: 8px;
   background: var(--text-primary);
-  color: #fff !important;
-  font-weight: 600 !important;
-  font-size: 0.78rem !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
   transition: opacity 0.2s;
 }
 .landing-nav-cta:hover {
@@ -782,13 +782,14 @@ html, body {
   margin-bottom: 14px;
 }
 .landing-feature-title {
-  font-size: 0.88rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 6px;
 }
 .landing-feature-desc {
-  font-size: 0.76rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.55;
   color: var(--text-secondary);
 }

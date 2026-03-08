@@ -421,7 +421,7 @@ export default function DocxRenderer({
                   if (e.key === "Escape") setIsRenaming(false);
                 }}
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "1rem",
                   fontWeight: 700,
                   color: "var(--text-primary)",
                   letterSpacing: "-0.01em",
@@ -438,7 +438,7 @@ export default function DocxRenderer({
                 onClick={() => setIsRenaming(true)}
                 title="Click to rename"
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "1rem",
                   fontWeight: 700,
                   color: "var(--text-primary)",
                   letterSpacing: "-0.01em",
@@ -480,7 +480,7 @@ export default function DocxRenderer({
               border: "1px solid var(--border-color)",
               background: "#fff",
               color: "var(--text-secondary)",
-              fontSize: "0.76rem",
+              fontSize: "1rem",
               fontWeight: 500,
               cursor: "pointer",
               transition: "all 0.15s",
@@ -507,7 +507,7 @@ export default function DocxRenderer({
               border: "none",
               background: "var(--accent)",
               color: "#fff",
-              fontSize: "0.76rem",
+              fontSize: "1rem",
               fontWeight: 600,
               cursor: "pointer",
               transition: "all 0.15s",
@@ -779,7 +779,7 @@ export default function DocxRenderer({
               <div style={{ textAlign: "center" }}>
                 <p
                   style={{
-                    fontSize: "1rem",
+                    fontSize: "1.2rem",
                     fontWeight: 600,
                     color: "var(--text-primary)",
                     marginBottom: "6px",
@@ -787,9 +787,9 @@ export default function DocxRenderer({
                 >
                   No document yet
                 </p>
-                <p
+                <p className="font-semibold"
                   style={{
-                    fontSize: "0.82rem",
+                    fontSize: "1rem",
                     color: "var(--text-muted)",
                     lineHeight: 1.5,
                     maxWidth: 300,
@@ -811,8 +811,8 @@ export default function DocxRenderer({
                   border: "1px solid var(--border-color)",
                   background: "#ffffff",
                   color: "var(--text-secondary)",
-                  fontSize: "0.82rem",
-                  fontWeight: 500,
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
                   cursor: "pointer",
                   transition: "all 0.15s",
                 }}

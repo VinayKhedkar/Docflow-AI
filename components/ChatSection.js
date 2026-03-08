@@ -19,12 +19,30 @@ import ElicitationCard from "./ElicitationCard";
 const AGENT_CONFIGS = {
   legal: [
     { id: "pm", label: "PM Agent", sublabel: "Routing", icon: "🧭", delay: 0 },
-    { id: "legal", label: "Legal Agent", sublabel: "Drafting", icon: "⚖️", delay: 800 },
-    { id: "sentinel", label: "Sentinel", sublabel: "Compliance", icon: "🛡️", delay: 1600 },
+    {
+      id: "legal",
+      label: "Legal Agent",
+      sublabel: "Drafting",
+      icon: "⚖️",
+      delay: 800,
+    },
+    {
+      id: "sentinel",
+      label: "Sentinel",
+      sublabel: "Compliance",
+      icon: "🛡️",
+      delay: 1600,
+    },
   ],
   general: [
     { id: "pm", label: "PM Agent", sublabel: "Routing", icon: "🧭", delay: 0 },
-    { id: "general", label: "Writing Agent", sublabel: "Drafting", icon: "✍️", delay: 800 },
+    {
+      id: "general",
+      label: "Writing Agent",
+      sublabel: "Drafting",
+      icon: "✍️",
+      delay: 800,
+    },
   ],
 };
 
@@ -72,7 +90,14 @@ function AgentPipeline({ mode }) {
         const isActive = i === activeIndex;
         const isPast = i < activeIndex;
         return (
-          <div key={agent.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div
+            key={agent.id}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             {/* Connector dots between agents (vertical) */}
             {i > 0 && (
               <div
@@ -83,7 +108,7 @@ function AgentPipeline({ mode }) {
                   alignItems: "center",
                   gap: "1px",
                   margin: "2px 0",
-                  animationDelay: `${agent.delay+500}ms`,
+                  animationDelay: `${agent.delay + 500}ms`,
                 }}
               >
                 {[0, 1, 2].map((d) => (
@@ -354,7 +379,7 @@ export default function ChatSection({
           />
           <span
             style={{
-              fontSize: "0.72rem",
+              fontSize: "0.85rem",
               fontWeight: 600,
               color: isLegal ? "#1e2a4a" : "var(--text-muted)",
               letterSpacing: "0.02em",
@@ -409,37 +434,16 @@ export default function ChatSection({
             className="animate-fade-in-up"
             style={{ textAlign: "center", padding: "40px 20px" }}
           >
-            <div
+            <h1
               style={{
-                width: 56,
-                height: 56,
-                borderRadius: "16px",
-                background: isLegal ? "var(--accent-glow)" : "rgba(0,0,0,0.04)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 16px",
-                border: "1px solid var(--border-color)",
-                boxShadow: "var(--shadow-sm)",
-                transition: "background 0.3s ease",
-              }}
-            >
-              {isLegal ? (
-                <img src="/logo.png" alt="DocFlow AI" width={28} height={28} />
-              ) : (
-                <img src="/logo.png" alt="DocFlow AI" width={28} height={28} style={{ opacity: 0.7 }} />
-              )}
-            </div>
-            <h3
-              style={{
-                fontSize: "1.05rem",
+                fontSize: "1.3rem",
                 fontWeight: 700,
                 marginBottom: "8px",
                 color: "var(--text-primary)",
               }}
             >
               {isLegal ? "Welcome to DocFlow AI" : "Welcome to DocFlow AI"}
-            </h3>
+            </h1>
             <p
               style={{
                 fontSize: "0.82rem",
@@ -450,7 +454,7 @@ export default function ChatSection({
               }}
             >
               {isLegal ? (
-                <>
+                <span className="text-[1.1rem]">
                   Your India-specific legal AI assistant. Try saying{" "}
                   <span style={{ color: "var(--accent)", fontWeight: 600 }}>
                     &quot;Draft an NDA&quot;
@@ -460,9 +464,9 @@ export default function ChatSection({
                     &quot;Create a service agreement&quot;
                   </span>
                   .
-                </>
+                </span>
               ) : (
-                <>
+                <span className="text-[1rem] font-semibold">
                   Your AI writing assistant. Try saying{" "}
                   <span style={{ fontWeight: 600 }}>
                     &quot;Draft a weekly update&quot;
@@ -472,7 +476,7 @@ export default function ChatSection({
                     &quot;Write an email&quot;
                   </span>
                   . Toggle <strong>Legal Mode</strong> for contracts.
-                </>
+                </span>
               )}
             </p>
 
@@ -496,7 +500,8 @@ export default function ChatSection({
                     border: "1px solid var(--border-color)",
                     background: "var(--bg-card)",
                     color: "var(--text-secondary)",
-                    fontSize: "0.78rem",
+                    fontSize: "0.9rem",
+                    fontWeight: 600,
                     cursor: "pointer",
                     transition: "all 0.2s",
                   }}
@@ -519,140 +524,6 @@ export default function ChatSection({
             </div>
           </div>
         )}
-
-        {/* {messages.map((msg) => (
-                    <div
-                        key={msg.id}
-                        className="animate-fade-in-up"
-                        style={{
-                            display: "flex",
-                            justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
-                            gap: "8px",
-                            alignItems: "flex-end",
-                        }}
-                    >
-                        
-                        {msg.role !== "user" && (
-                            <div
-                                style={{
-                                    width: 28,
-                                    height: 28,
-                                    borderRadius: "8px",
-                                    background: "var(--accent-glow)",
-                                    border: "1px solid var(--border-color)",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    flexShrink: 0,
-                                }}
-                            >
-                                <Bot size={14} color="var(--accent)" />
-                            </div>
-                        )}
-
-                        {(() => {
-                            const parts = msg.parts || [];
-                            const textParts = parts.filter(p => p.type === "text");
-                            const toolParts = parts.filter(
-                                p => p.type === "dynamic-tool" || p.type?.startsWith("tool-")
-                            );
-                            const hasTools = toolParts.length > 0;
-                            const textContent = textParts.map(p => p.text).join("").trim();
-
-                            if (hasTools) {
-                                return (
-                                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
-                                        {toolParts.map((part) => {
-                                            const toolName = part.toolName;
-                                            const toolCallId = part.toolCallId;
-                                            const state = part.state;
-                                            const args = part.input || {};
-                                            if (toolName === "request_missing_info") {
-                                                const parsedValues = (() => {
-                                                    if (state !== "output-available") return {};
-                                                    try { return JSON.parse(part.output); } catch { return {}; }
-                                                })();
-                                                return (
-                                                    <ElicitationCard
-                                                        key={toolCallId}
-                                                        fields={args?.fields || []}
-                                                        submitted={state === "output-available"}
-                                                        values={parsedValues}
-                                                        onSubmit={(values) => onElicitSubmit(toolCallId, values)}
-                                                    />
-                                                );
-                                            }
-                                            return null;
-                                        })}
-                                        {textContent && (
-                                            <div
-                                                style={{
-                                                    maxWidth: "80%",
-                                                    padding: "10px 14px",
-                                                    borderRadius: "14px 14px 14px 4px",
-                                                    background: "var(--bg-card)",
-                                                    border: "1px solid var(--border-color)",
-                                                    boxShadow: "var(--shadow-sm)",
-                                                    color: "var(--text-primary)",
-                                                    fontSize: "0.84rem",
-                                                    lineHeight: 1.55,
-                                                }}
-                                                dangerouslySetInnerHTML={{
-                                                    __html: renderMarkdown(textContent),
-                                                }}
-                                            />
-                                        )}
-                                    </div>
-                                );
-                            }
-
-                            // Regular message bubble (text-only)
-                            return (
-                                <div
-                                    style={{
-                                        maxWidth: "80%",
-                                        padding: "10px 14px",
-                                        borderRadius: msg.role === "user"
-                                            ? "14px 14px 4px 14px"
-                                            : "14px 14px 14px 4px",
-                                        background: msg.role === "user"
-                                            ? "var(--user-bubble)"
-                                            : "var(--bg-card)",
-                                        border: msg.role === "user"
-                                            ? "none"
-                                            : "1px solid var(--border-color)",
-                                        boxShadow: "var(--shadow-sm)",
-                                        color: msg.role === "user" ? "#fff" : "var(--text-primary)",
-                                        fontSize: "0.84rem",
-                                        lineHeight: 1.55,
-                                    }}
-                                    dangerouslySetInnerHTML={{
-                                        __html: msg.role === "user"
-                                            ? (textContent || "")
-                                            : renderMarkdown(textContent || ""),
-                                    }}
-                                />
-                            );
-                        })()}
-
-                        {msg.role === "user" && (
-                            <div
-                                style={{
-                                    width: 28,
-                                    height: 28,
-                                    borderRadius: "8px",
-                                    background: "var(--user-bubble)",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    flexShrink: 0,
-                                }}
-                            >
-                                <User size={14} color="#fff" />
-                            </div>
-                        )}
-                    </div>
-                ))} */}
 
         {messages.map((msg) => (
           <div
@@ -914,7 +785,7 @@ export default function ChatSection({
               border: "none",
               outline: "none",
               color: "var(--text-primary)",
-              fontSize: "0.84rem",
+              fontSize: "1rem",
               padding: "10px 0",
               resize: "none",
               lineHeight: 1.4,
@@ -929,7 +800,6 @@ export default function ChatSection({
               height: 34,
               borderRadius: "8px",
               border: "none",
-              background: input?.trim() ? "var(--accent)" : "transparent",
               color: input?.trim() ? "#fff" : "var(--text-muted)",
               cursor: input?.trim() ? "pointer" : "default",
               display: "flex",
@@ -939,7 +809,7 @@ export default function ChatSection({
               flexShrink: 0,
             }}
           >
-            <Send color="black" size={16} />
+            <Send color={input?.trim() ? "#000" : "var(--text-muted)"} size={16} />
           </button>
         </div>
       </div>

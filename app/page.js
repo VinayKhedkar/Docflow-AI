@@ -112,7 +112,7 @@ export default function LandingPage() {
         <div className="landing-nav-inner">
           <div className="landing-logo">
             <img src="/logo.png" alt="DocFlow AI" width={35} height={35} />
-            <span className="text-[2rem]">DocFlow AI</span>
+            <span className="text-[1.5rem]">DocFlow AI</span>
           </div>
           <div className="landing-nav-links">
             <Link href="/docflow-desk" className="landing-nav-cta">
@@ -129,24 +129,26 @@ export default function LandingPage() {
           <div className="landing-hero-copy">
             <div className="landing-badge">
               <Sparkles size={13} />
-              <span>AI-Powered Legal Drafting for India</span>
+              <span className="text-[0.95rem]">
+                AI-Powered Legal Drafting for India
+              </span>
             </div>
 
-            <h1 className="landing-h1">
+            <h1 className="text-[2.75rem] leading-[1.1] font-semibold landing-title">
               Draft Legal Documents
               <br />
-              <span className="landing-h1-accent">in Minutes, Not Hours</span>
+              in Minutes, Not Hours
             </h1>
 
-            <p className="landing-subtitle">
+            <p className="text-[1.15rem] text-gray-700 mt-4 mb-6">
               DocFlow AI is an agentic workspace that combines multi-agent
               orchestration, generative UI, voice commands, and India-specific
               legal compliance — all in one interface.
             </p>
 
-            <div className="landing-cta-group">
-              <Link href="/docflow-desk" className="landing-cta-primary">
-                Start Drafting <ArrowRight size={16} />
+            <div className="landing-nav-links">
+              <Link href="/docflow-desk" className="landing-nav-cta">
+                Start Drafting <ArrowRight size={14} />
               </Link>
             </div>
           </div>
@@ -238,12 +240,12 @@ export default function LandingPage() {
           <FeatureCard
             icon={<Bot size={22} />}
             title="Multi-Agent Pipeline"
-            description="PM Agent routes, Legal Agent drafts with Gemini 2.5 Flash, Sentinel scans for compliance — all orchestrated automatically."
+            description="PM Agent routes, Legal Agent drafts with Gemini 2.5 Flash, Sentinel scans for compliance... all orchestrated automatically."
           />
           <FeatureCard
             icon={<FileText size={22} />}
             title="Generative UI"
-            description="AI renders interactive form cards inline in chat. Fill in party names, GSTIN, PAN — the document updates in real-time."
+            description="AI renders interactive form cards inline in chat. Fill in party names, GSTIN, PAN the document updates in real-time."
           />
           <FeatureCard
             icon={<Mic size={22} />}
@@ -263,9 +265,9 @@ export default function LandingPage() {
         <div className="landing-footer-inner">
           <div className="landing-footer-logo">
             <img src="/logo.png" alt="DocFlow AI" width={18} height={18} />
-            <span>DocFlow AI</span>
+            <span className="text-[1rem]">DocFlow AI</span>
           </div>
-          <p>Built for Indian SMEs. Powered by Gemini & ElevenLabs.</p>
+          <p className="text-[1rem]">Built for Indian SMEs. Powered by Gemini & ElevenLabs.</p>
         </div>
       </footer>
     </div>
