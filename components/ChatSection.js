@@ -255,9 +255,9 @@ const LEGAL_CHIPS = [
 ];
 
 const GENERAL_CHIPS = [
-  "Summarize this report",
+  "Draft a report",
   "Draft a weekly update",
-  "Write a professional email",
+  "Draft a project proposal",
 ];
 
 /**
@@ -473,7 +473,7 @@ export default function ChatSection({
                   </span>{" "}
                   or{" "}
                   <span style={{ fontWeight: 600 }}>
-                    &quot;Write an email&quot;
+                    &quot;Draft a report&quot;
                   </span>
                   . Toggle <strong>Legal Mode</strong> for contracts.
                 </span>
