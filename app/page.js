@@ -127,17 +127,10 @@ export default function LandingPage() {
         <div className="landing-hero-inner">
           {/* Left copy */}
           <div className="landing-hero-copy">
-            <div className="landing-badge">
-              <Sparkles size={13} />
-              <span className="text-[0.95rem]">
-                AI-Powered Legal Drafting for India
-              </span>
-            </div>
 
             <h1 className="text-[2.75rem] leading-[1.1] font-semibold landing-title">
-              Draft Legal Documents
-              <br />
-              in Minutes, Not Hours
+              Draft Professional Business Documents
+              in Minutes
             </h1>
 
             <p className="text-[1.15rem] text-gray-700 mt-4 mb-6">
